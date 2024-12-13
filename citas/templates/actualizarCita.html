@@ -1,0 +1,18 @@
+{% extends 'layouts/baseSinHero.html' %}
+
+{% block contenido %}
+<div class="container-xl">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form action="" method="POST">
+                <legend class="text-center fw-bold mt-5 text-primary">
+                  </svg>Actualizar Cita</legend>
+                {% csrf_token %}
+                {{ FormularioActualizado }} 
+                <input type="submit" value="Actualizar" class="btn  btn-primary container-xl mt-3 mb-5">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %} 

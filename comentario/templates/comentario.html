@@ -1,0 +1,38 @@
+{% extends 'layouts/baseSinHero.html' %}
+
+
+{% block contenido %}
+    <h2 class="text-center fw-bold text-primary">Citas con el dentista {{ dentista.nombre }}</h2>
+    {% if error %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endif %}
+    <div class="container-xl">
+        <div class="row d-flex justify-content-center my-5">
+            <div class="col-md-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="cita_id" class="form-label mb-3">Seleccionar Cita:</label>
+                        <select name="cita_id" class="form-control" required>
+                            {% for cita in citas %}
+                                <option value="{{ cita.id }}">{{ cita.fecha }} - {{ cita.motivo }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="contenido" class="form-label mb-3">Comentario:</label>
+                        <textarea name="contenido" class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="calificacion" class="form-label">Calificación:</label>
+                        <input type="number" name="calificacion" class="form-control" min="1" max="5" required>
+                    </div>
+                    <div class="container-xl ">
+                        <button type="submit" class="btn btn-primary border-0 mt-3 w-100 ">Enviar Comentario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

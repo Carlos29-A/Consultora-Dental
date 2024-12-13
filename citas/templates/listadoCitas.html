@@ -1,0 +1,83 @@
+{% extends 'layouts/baseSinHero.html' %}
+{% load static %}
+{% block contenido %}
+<h2 class="text-center text-primary fw-bold mt-4">Listado de Citas</h2>
+
+
+<section class="m-5">
+    <div class="container-xl ">
+        <div class="row ">
+            {% for cita in citas %}
+                {% if bandera %}
+                    <div class="col-md-6 d-flex gap-2 p-3 mb-5">
+                        {% if  cita.motivo == 'dolor de muela'%}
+                            <img src="{% static 'img/DolorMuela.jpg' %}" alt="imagen" class="img-fluid w-50">
+                        {% elif cita.motivo == 'Blanqueamiento' or cita.motivo == 'blanqueamiento' %}
+                            <img src="{% static 'img/blanqueamiento.jpg' %}" alt="imagen" class="img-fluid w-50">
+                        {%endif%}
+                        <div class="contenido">
+                            <h4 class="text-primary fw-bold">
+                                Fecha y Hora :
+                            </h4>
+                            <p>
+                                {{cita.fecha_cita}} {{cita.hora_cita}}
+                            </p>
+                            <h4 class="text-primary fw-bold">
+                                Motivo:
+                            </h4>
+                            <p>
+                                {{cita.motivo}}
+                            </p>
+                            <h4 class="text-primary fw-bold">
+                                Estado:
+                            </h4>
+                            <p>
+                                {{cita.estado}}
+                            </p>
+                            <h4 class="text-primary fw-bold">
+                                Paciente:
+                            </h4>
+                            <p>
+                                {{cita.id_usuario}}
+                            </p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-6 d-flex gap-2 p-3 mb-5">
+                        {% if  cita.motivo == 'dolor de muela'%}
+                            <img src="{% static 'img/DolorMuela.jpg' %}" alt="imagen" class="img-fluid w-50">
+                        {% elif cita.motivo == 'Blanqueamiento' or cita.motivo == 'blanqueamiento'  %}
+                            <img src="{% static 'img/blanqueamiento.jpg' %}" alt="imagen" class="img-fluid w-50">
+                        {%endif%}
+                        <div class="contenido">
+                            <h4 class="text-primary fw-bold">
+                                Fecha y Hora :
+                            </h4>
+                            <p>
+                                {{cita.fecha_cita}} {{cita.hora_cita}}
+                            </p>
+                            <h4 class="text-primary fw-bold">
+                                Motivo:
+                            </h4>
+                            <p>
+                                {{cita.motivo}}
+                            </p>
+                            <h4 class="text-primary fw-bold">
+                                Estado:
+                            </h4>
+                            <p>
+                                {{cita.estado}}
+                            </p>
+                            <a href="{% url 'actualizarCita' id=cita.id %}" class="btn btn-secondary">Modificar</a>
+                            <a href="{% url 'eliminarCita' id=cita.id %}"  class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+</section>
+
+
+{% endblock  %} 

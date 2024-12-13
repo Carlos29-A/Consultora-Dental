@@ -1,0 +1,73 @@
+:root {
+    --bs-blue :#00BFFF;
+    --fuente-Principal : "PT Sans", sans-serif;
+    --fuente-parrafos : "Open Sans", sans-serif;
+    --bs-blue-secondary: #1E90FF;
+    --bs-light : #efefef;
+}
+
+.hero{
+    background-image: url('../img/fondo.jpg');
+    height: 50rem;
+    background-size: cover; 
+    background-position: right center;
+}
+
+h1,h2,h3,h4 {
+    font-family: var(--fuente-Principal)
+}
+
+p {
+    font-family: var(--fuente-parrafos);
+}
+
+.text-primary{
+    color: var(--bs-blue)!important;
+}
+.bg-primary{
+    background-color: var(--bs-blue)!important;
+}
+.icono {
+    color: var(--bs-blue);
+}
+.btn-primary {
+    background-color: var(--bs-blue)!important;
+}
+.border-primary{
+    background-color: var(--bs-blue)!important;
+}
+.text-secondary {
+    color: var(--bs-blue-secondary)!important;
+}
+.btn-secondary {
+    background-color: var(--bs-blue-secondary)!important;
+}
+.checkups-section {
+    background-color: var(--bs-blue); /* Azul Bootstrap */
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+.checkups-image {
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+.btn-light {
+    background-color: var(--bs-light)!important;
+}
+.boton-animado{
+    font-size: 15px;
+    transition: font-size .3s ease;
+    transition: background-color .3s ease;
+    border: none;
+}
+.boton-animado:hover {
+    background-color: #1E90FF !important;
+    border: none;
+    font-size: 20px;
+}
+.bg-light {
+    background-color: var(--bs-light)!important;
+    
+}

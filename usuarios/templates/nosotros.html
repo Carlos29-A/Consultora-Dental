@@ -1,0 +1,72 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block titulo %}
+    {{titulo}}
+{% endblock %}
+{% block contenido %}
+<div class="container py-5 my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <div class="checkups-section">
+        <h2 class="titulo text-center fw-bold mb-5">Nosotros</h2>
+        <p>
+            Our office recommends that patients schedule regular check-ups at intervals recommended by one of our dentists. Check-ups allow our dentists to identify early signs of dental problems before they can cause irreversible damage to your teeth and gums.
+        </p>
+        <p>
+            During your check-up, your dentist will perform a visual inspection of your teeth and gums using specialized dental instruments. Radiographs, including dental x-rays, may be required. If your visit includes impacted wisdom teeth, periodontitis, loose fillings, or other dental problems, these can be treated during your check-up or may require a follow-up visit.
+        </p>
+        <p>
+          During your check-up, your dentist will perform a visual inspection of your teeth and gums using specialized dental instruments. Radiographs, including dental x-rays, may be required. If your visit includes impacted wisdom teeth, periodontitis, loose fillings, or other dental problems, these can be treated during your check-up or may require a follow-up visit.
+      </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <img src="https://via.placeholder.com/600x400" alt="Dental Checkup" class="img-fluid checkups-image">
+    </div>
+  </div>
+</div>
+
+<div class="container-xl">
+  <div>
+    <h2 class="text-center fw-bold text-primary mb-5">Nuestros Expertos Dentistas</h2>
+  </div>
+  <div class="row">
+    {% for dentista in dentistas %}
+    <div class="col-md-3">
+      <div class="card mb-3 border border-0">
+        <img class="card-img-top" src="{% static 'img/dentista3.png' %}" alt="dentista 1"></img>
+        <div class="card-header text-center">
+          SonriDent
+        </div>
+        <div class="card-body text-center">
+          <h3 class="card-title">
+            {{dentistas.nombre}}
+          </h3>
+          <p>
+            {{dentista.especialidad}}
+          </p>
+          <p>
+            {{dentista.correo_electronico}}
+          </p>
+          <p>
+            {{dentista.telefono}}
+          </p>
+          {% if user.email%}
+            <a href="{% url 'registroCitas'%}" class="btn btn-secondary ">Separa tu Cita
+            </a>
+          {% else %}
+            <a href="{% url 'loginUsuario'%}" class="btn btn-secondary ">Separa tu Cita
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

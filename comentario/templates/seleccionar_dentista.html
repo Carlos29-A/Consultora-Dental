@@ -1,0 +1,26 @@
+{% extends 'layouts/baseSinHero.html' %}
+{% load static %}
+{% block contenido %}
+<div class="container-xl my-5 py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-6  text-center">
+            <img class="img-fluid w-50 rounded-circle bg-light" src="{% static 'img/dentista4.png' %}" alt="imagen-Dentista">
+        </div>
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="dentista_id" class="form-label mb-5">Seleccionar Dentista:</label>
+                    <select name="dentista_id" class="form-control" required>
+                        {% for dentista in dentistas %}
+                            <option value="{{ dentista.id }}">{{ dentista.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 border-0 px-5 ">Ver Citas</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

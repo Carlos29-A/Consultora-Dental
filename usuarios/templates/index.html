@@ -1,0 +1,210 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block titulo %}
+    {{titulo}}
+{% endblock %}
+{% block contenido %}
+    <p class="text-center fw-bold mt-5 text-secondary">
+        !Cambiando vidas una sonrisa a la vez!
+    </p>
+    <h1 class="text-center fw-bold text-primary">
+        Bienvenido a SonriDent
+    </h1>
+
+    <div class="text-center container-xl mt-5">
+        <div class="row ">
+            <div class="col-md-6">
+                <img class="img-fluid" src="{% static 'img/Clinica.jpg' %}" alt="imagen dentista">
+            </div>
+            <div class="col-md-6 text-start p-5">
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi nostrum placeat cumque, commodi praesentium, doloribus quos veniam ea facilis impedit tempore ipsa odit inventore maiores iusto. Vero obcaecati excepturi commodi!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi nostrum placeat cumque, commodi praesentium, doloribus quos veniam ea facilis impedit tempore ipsa odit inventore maiores iusto. Vero obcaecati excepturi commodi!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi nostrum placeat cumque, commodi praesentium, doloribus quos veniam ea facilis impedit tempore ipsa odit inventore maiores iusto. Vero obcaecati excepturi commodi!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi nostrum placeat cumque, commodi praesentium, doloribus quos veniam ea facilis impedit tempore ipsa odit inventore maiores iusto. Vero obcaecati excepturi commodi!
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5 ">
+        <h2 class="p-5 text-primary">Nuestros Servicios</h2>
+        <div class="bg-primary d-flex justify-content-center p-5 pb-2">
+            <div class="row p-5 bg-primary container-xl">
+                <div class="col-md-3 text-white">
+                    <img src="{% static 'img/limpieza-dental.png' %}" alt="Limpieza Dental" class="img-fluid w-25">
+                    <h4 class="mt-3">Limpieza Dental</h4>
+                    <p class="mt-5 "">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="col-md-3 text-white">
+                    <img src="{% static 'img/Ortodoncia.png' %}" alt="Ortodoncia" class="img-fluid w-25">
+                    <h4 class="mt-3">Ortodoncia</h4>
+                    <p class="mt-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="col-md-3 text-white">
+                    <img src="{% static 'img/blanqueamiento.png' %}" alt="Blanqueamiento" class="img-fluid w-25">
+                    <h4 class="mt-3">Blanqueamiento</h4>
+                    <p class="mt-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="col-md-3 text-white">
+                    <img src="{% static 'img/Diagnostico.png' %}" alt="Diagnóstico" class="img-fluid w-25">
+                    <h4 class="mt-3">Diagnóstico General</h4>
+                    <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="seccion mt-5 mb-5">
+        {% if user.email %}
+            <h2 class="p-5 text-center text-primary">Informacion</h2>    
+            {% if bandera %}
+            <div class="container-xl">
+                <div class="row">
+                    <div class="col-md-6 p-5 mt-5">
+                        <div class="card mb-3 border border-0">
+                            <img class="card-img-top "  src="{% static 'img/VerCitas.jpg' %}" alt="imagen de curso">
+                            <div class="card-header">SonriDent</div>
+                            <div class="card-body text-center text-primary">
+                                <h3 class="card-title text-secondary">Ver mis Citas</h3>
+                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur</p>
+                                <a href="{% url 'listadoCitas' %}" class="btn btn-secondary d-block">Ingresar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 p-5">
+                        <div class="card mb-3 border border-0">
+                            <img class="card-img-top rounded-circle p-5 "  src="{% static 'img/MostrarComentarios.jpg' %}" alt="imagen de curso" >
+                            <div class="card-header bg-primary text-light">SonriDent</div>
+                            <div class="card-body text-center text-primary">
+                                <h3 class="card-title text-secondary">Mostrar Comentarios</h3>
+                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur</p>
+                                <a href="{% url 'listadoComentarios' %}" class="btn btn-secondary d-block border border-0">Ingresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}    
+                <div class="container-xl p-5">
+                    <div class="row ">
+                        <diV class="col-md-6 p-5">
+                            <div class="card mb-3 border border-0">
+                                <img class="card-img-top rounded-circle p-5"  src="{% static 'img/AgendarCitas.jpg' %}" alt="imagen de curso">
+                                <div class="card-header bg-primary text-light">SonriDent</div>
+                                <div class="card-body text-center text-primary ">
+                                    <h3 class="card-title text-secondary">Agendar Cita</h3>
+                                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur </p>
+                                    <a href="{% url 'registroCitas' %}" class="btn btn-secondary  d-block border border-0">Ingresar</a>
+                                </div>
+                            </div>
+                        </diV>
+                        <div class="col-md-6 p-5">
+                            <div class="card mb-3 border border-0">
+                                <img class="card-img-top rounded-circle p-5 "  src="{% static 'img/VerCitas.jpg' %}" alt="imagen de curso" >
+                                <div class="card-header bg-primary text-light">SonriDent</div>
+                                <div class="card-body text-center text-primary">
+                                    <h3 class="card-title text-secondary">Ver mis Citas</h3>
+                                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur</p>
+                                    <a href="{% url 'listadoCitas' %}" class="btn btn-secondary d-block border border-0">Ingresar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top">
+                    <div class="container-xl p-5">
+                        <div class="row ">
+                            <diV class="col-md-6 p-5">
+                                <div class="card mb-3 border border-0">
+                                    <img class="card-img-top rounded-circle p-5 mt-5"  src="{% static 'img/CrearComentarios.jpg' %}" alt="imagen de curso">
+                                    <div class="card-header bg-primary text-light">SonriDent</div>
+                                    <div class="card-body text-center text-primary ">
+                                        <h3 class="card-title text-secondary">Crear Comentario</h3>
+                                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur </p>
+                                        <a href="{% url 'comentario' %}" class="btn btn-secondary  d-block border border-0">Ingresar</a>
+                                    </div>
+                                </div>
+                            </diV>
+                            <div class="col-md-6 p-5">
+                                <div class="card mb-3 border border-0">
+                                    <img class="card-img-top rounded-circle p-5 "  src="{% static 'img/MostrarComentarios.jpg' %}" alt="imagen de curso" >
+                                    <div class="card-header bg-primary text-light">SonriDent</div>
+                                    <div class="card-body text-center text-primary">
+                                        <h3 class="card-title text-secondary">Mostrar Comentarios</h3>
+                                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cum tempora. Laborum ipsum exercitationem consequatur</p>
+                                        <a href="{% url 'listadoComentarios' %}" class="btn btn-secondary d-block border border-0">Ingresar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {%else%}
+            <h2 class="p-5 text-center text-primary">Lo que dice la gente</h2>
+            <div class="bg-primary">
+                <h2 class="text-center fw-bold">SonriDent</h2>
+                <div class="container-xl p-5">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-5">
+                            <h3 class="fw-bold fs-1">
+                                Lo que dice la <span class="text-white
+                                ">gente</span>
+                            </h3>
+                        </div>
+                        <div class="col-md-7">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad modi beatae eveniet amet repellat exercitationem eum debitis? Rem nihil, enim alias expedita tenetur beatae, magni nulla perspiciatis labore commodi placeat?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-xl">
+                    <div class="row p-5">
+                        {%for comentario in comentarios%}
+                        <div class="col-md-4 text-center mt-3  bg-white border border-secondary">
+                            <div class="p-5">
+                                <img src="{% static 'img/paciente.jpg' %}" alt="imagen de paciente" class="img-fluid w-50 h-50 rounded-3 border my-4">
+                                <p>{{comentario.contenido}}</p>
+                                <p class="fw-bold">
+                                    Paciente : <span class="fw-normal">{{comentario.paciente_id.username}}</span>
+                                    <br>
+                                    Encargado : <span class="fw-normal">{{comentario.dentista_id.nombre}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        {%endfor%}
+
+                    </div>
+                    <div class="text-end p-5">
+                        <a class="btn btn-light p-3 rounded-5 boton-animado" href="{% url 'comentario' %}">Ver mas</a>
+                        <a class="btn btn-light p-3 rounded-5 boton-animado" href="{% url 'loginUsuario' %}">Realizar comentario</a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        {% endif %}
+    </section>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10;">
+        <div class="toast hide" id="toast">
+            <div class="toast-header">
+                <strong class="me-auto">{% if paciente %}Paciente{% else %}Dentista {% endif %}</strong>
+                <small>Hace 3 minutos</small>
+                <button type="button" data-bs-dismiss="toast" class="btn-close"></button>
+            </div>
+            <div class="toast-body">
+                Registrado
+            </div>
+        </div>
+    </div>
+    {% if success %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toastEl = document.getElementById('toast');
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
