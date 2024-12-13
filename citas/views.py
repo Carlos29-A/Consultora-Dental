@@ -33,7 +33,7 @@ def crear_full_citas(request):
 
             cita.save()
 
-            return HttpResponse("Se creo la cita correctamente")
+            return redirect('inicio')
         else:
             return HttpResponse("Ocurrio un error")
 

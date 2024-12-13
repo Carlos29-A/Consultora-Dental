@@ -10,38 +10,41 @@
             {% for comentario in comentarios %}
                 {% if bandera %}
                     {% if paciente %}
-                        <div class="col-md-6 d-flex gap-2 p-3 mb-5">
+                        <div class="col-md-6 d-flex  mb-5 justify-content-center align-items-center ">
                             {% if  comentarios.calificacion > 3 and comentarios.calificacion <= 5 %}
-                                <img src="{% static 'img/DolorMuela.jpg' %}" alt="imagen" class="img-fluid w-50">
+                                    <img src="{% static 'img/DolorMuela.jpg' %}" alt="imagen" class="img-fluid w-75">
+
                             {% else %}
-                                <img src="{% static 'img/blanqueamiento.jpg' %}" alt="imagen" class="img-fluid w-50">
-                            {%endif%}
-                            <div class="contenido">
-                                <h4 class="text-primary fw-bold">
-                                    Contenido:
-                                </h4>
-                                <p>
-                                    {{comentario.contenido}}
-                                </p>
-                                <h4 class="text-primary fw-bold">
-                                    calificacion:
-                                </h4>
-                                <p>
-                                    {{comentario.calificacion}}
-                                </p>
-                                <h4 class="text-primary fw-bold">
-                                    Dentista:
-                                </h4>
-                                <p>
-                                    {{comentario.dentista_id.nombre}}
-                                </p>
-                                <h4 class="text-primary fw-bold">
-                                    cita:
-                                </h4>
-                                <p>
-                                    {{comentario.cita_id.motivo}}
-                                </p>
-                            </div>
+                                    <img src="{% static 'img/blanqueamiento.jpg' %}" alt="imagen" class="img-fluid w-75">
+
+                            {% endif %}
+                                <div class="contenido p-5">
+                                    <h4 class="text-primary fw-bold">
+                                        Contenido:
+                                    </h4>
+                                    <p>
+                                        {{comentario.contenido}}
+                                    </p>
+                                    <h4 class="text-primary fw-bold">
+                                        calificacion:
+                                    </h4>
+                                    <p>
+                                        {{comentario.calificacion}}
+                                    </p>
+                                    <h4 class="text-primary fw-bold">
+                                        Dentista:
+                                    </h4>
+                                    <p>
+                                        {{comentario.dentista_id.nombre}}
+                                    </p>
+                                    <h4 class="text-primary fw-bold">
+                                        cita:
+                                    </h4>
+                                    <p>
+                                        {{comentario.cita_id.motivo}}
+                                    </p>
+                                </div>
+                        </div>
                     {% else %}        
                         <div class="col-md-6 d-flex gap-2 p-3 mb-5">
                             {% if  comentarios.calificacion > 3 and comentarios.calificacion <= 5 %}
@@ -122,6 +125,5 @@
     </div>
     
 </section>
-
 
 {% endblock  %} 
